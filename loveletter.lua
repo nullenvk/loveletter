@@ -7,6 +7,10 @@ local winW, winH, winRatio = 800, 600, 4/3
 
 function LetterboxInit(w, h)
     winW, winH, winRatio = w, h, w/h
+
+    if winW < viewW or winH < viewH then
+        error("Loveletter library doesn't support resolutions smaller than "..viewW.."x"..viewH)
+    end
 end
 
 function LetterboxStart()
